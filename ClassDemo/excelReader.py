@@ -21,7 +21,7 @@ _colOfClassroom = 5
 
 def main():
 	# 读取 excel 文件
-	data = xlrd.open_workbook('classInfo.xlsx')
+	data = xlrd.open_workbook('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/classInfo.xlsx')
 	table = data.sheets()[0]
 	# print table.cell(1,0).value
 	# 基础信息
@@ -50,7 +50,7 @@ def main():
 	info += "Classroom: " + str(_colOfClassroom) + "列\n"
 	print (info)
 	# info += "输入 0 继续，输入 1 退出："
-	option = raw_input("输入 0 继续，输入其他内容退出：")
+	option = input("输入 0 继续，输入其他内容退出：")
 	if option == "1":
 		sys.exit()
 	
@@ -89,7 +89,7 @@ def main():
 		i += 1
 	classInfoStr += tailStr
 	# print classInfoStr
-	with open('conf_classInfo.json','w') as f:
+	with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/conf_classInfo.json','w') as f:
 
 		f.write(classInfoStr)
 		f.close()

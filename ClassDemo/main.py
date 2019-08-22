@@ -1,7 +1,7 @@
 # coding: utf-8
 #!/usr/bin/python
 
-import sys
+import sys,importlib
 import time, datetime
 import json
 from random import Random
@@ -29,10 +29,10 @@ classInfoList = []
 
 def main():
     
-	basicSetting();
-	uniteSetting();
-	classInfoHandle();
-	icsCreateAndSave();
+	basicSetting()
+	uniteSetting()
+	classInfoHandle()
+	icsCreateAndSave()
 
 def classICSCreate(classInfo):
 	global classTimeList, DONE_ALARMUID, DONE_UnitUID
@@ -156,15 +156,19 @@ def uniteSetting():
 
 def setClassTime():
 	data = []
-	with open('conf_classTime.json', 'r') as f:
+	with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/conf_classInfo.json', 'r') as f:
 		data = json.load(f)
+	print("load success")
+	print(data)
+	print("无法加载classtime类")
+	print(data[0][1])
 	global classTimeList
-	classTimeList = data["classTime"]
+	classTimeList = data['classTime']
 	print("setclassTime")
 	
 def setClassInfo():
 	data = []
-	with open('conf_classInfo.json', 'r') as f:
+	with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/conf_classInfo.json', 'r') as f:
 		data = json.load(f)
 	global classInfoList
 	classInfoList = data["classInfo"]
@@ -194,7 +198,7 @@ def setReminder(reminder):
 
 	print("setReminder",reminder)
 
-def checkReminder(reminder):
+def checkReminderfunc(reminder):
 	# TODO
 
 	print("checkReminder:",reminder)
@@ -204,10 +208,10 @@ def checkReminder(reminder):
 			return YES
 	return NO
 
-def checkFirstWeekDate(firstWeekDate):
+def checkFirstWeekDatefunc(firstWeekDate):
 	# 长度判断
 	if(len(firstWeekDate) != 8):
-		return NO;
+		return NO
 	
 	year = firstWeekDate[0:4]
 	month = firstWeekDate[4:6]
@@ -219,10 +223,10 @@ def checkFirstWeekDate(firstWeekDate):
 		return NO
 	# 月份判断
 	if(int(month) == 0 or int(month) > 12):
-		return NO;
+		return NO
 	# 日期判断
 	if(int(date) > dateList[int(month)-1]):
-		return NO;
+		return NO
 
 	print("checkFirstWeekDate:",firstWeekDate)
 	return YES
@@ -232,7 +236,7 @@ def basicSetting():
 	print (info)
 	
 	info = "请设置第一周的星期一日期(如：20160905):\n"
-	firstWeekDate = raw_input(info)
+	firstWeekDate = input(info)
 	checkInput(checkFirstWeekDate, firstWeekDate)
 	
 	info = "正在配置上课时间信息……\n"
@@ -240,7 +244,10 @@ def basicSetting():
 	try :
 		setClassTime()
 		print("配置上课时间信息完成。\n")
-	except :
+	except Exception as e:
+		print("配置上课时间信息错误.")
+		#print(e)
+		print("\n")
 		sys_exit()
 
 	info = "正在配置课堂信息……\n"
@@ -249,30 +256,31 @@ def basicSetting():
 		setClassInfo()
 		print("配置课堂信息完成。\n")
 	except :
+
 		sys_exit()
 
 	info = "正在配置提醒功能，请输入数字选择提醒时间\n【0】不提醒\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
-	reminder = raw_input(info)
+	reminder = input(info)
 	checkInput(checkReminder, reminder)
 def checkInput(checkType, input):
 	if(checkType == checkFirstWeekDate):
-		if (checkFirstWeekDate(input)):
+		if (checkFirstWeekDatefunc(input)):
 			info = "输入有误，请重新输入第一周的星期一日期(如：20160905):\n"
-			firstWeekDate = raw_input(info)
+			firstWeekDate = input(info)
 			checkInput(checkFirstWeekDate, firstWeekDate)
 		else:
 			setFirstWeekDate(input)
 	elif(checkType == checkReminder):
-		if(checkReminder(input)):
+		if(checkReminderfunc(input)):
 			info = "输入有误，请重新输入\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
-			reminder = raw_input(info)
+			reminder = input(info)
 			checkInput(checkReminder, reminder)
 		else:
 			setReminder(input)
 
 	else:
 		print("程序出错了……")
-		end
+		#end
 
 def random_str(randomlength):
     str = ''
@@ -285,6 +293,5 @@ def random_str(randomlength):
 def sys_exit():
 	print("配置文件错误，请检查。\n")
 	sys.exit()
-reload(sys);
-sys.setdefaultencoding('utf-8');
+importlib.reload(sys)
 main()
