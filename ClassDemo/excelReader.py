@@ -1,9 +1,9 @@
 # coding: utf-8
 #!/usr/bin/python
 
-import sys
-reload(sys);
-sys.setdefaultencoding('utf-8');
+import sys,importlib
+importlib.reload(sys);
+#sys.setdefaultencoding('utf-8');
 
 import json
 import xlrd
