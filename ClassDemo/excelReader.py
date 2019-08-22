@@ -2,8 +2,7 @@
 #!/usr/bin/python
 
 import sys,importlib
-importlib.reload(sys);
-#sys.setdefaultencoding('utf-8');
+importlib.reload(sys)
 
 import json
 import xlrd
