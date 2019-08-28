@@ -454,8 +454,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 				
 				for(count_size=0;count_size<200;count_size++)
 				{
-
-
 				_aPoint[0].x=count_size*2;
 				ADC_store_PP[count_size]=ADC_store_P[count_size]-ADC_store_N[count_size];
 				_aPoint[0].y=((ADC_store_PP[count_size])/47*3);

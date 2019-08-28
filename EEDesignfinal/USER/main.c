@@ -25,21 +25,11 @@
 //#include "adc.h"
 #include "bsp_spi_ad7606.h"
 /************************************************
- ALIENTEK精英STM32开发板STemWin实验
- STemWin GUIBulider使用
-
- UCOSIII中以下优先级用户程序不能使用，ALIENTEK
- 将这些优先级分配给了UCOSIII的5个系统内部任务
  优先级0：中断服务服务管理任务 OS_IntQTask()
  优先级1：时钟节拍任务 OS_TickTask()
  优先级2：定时任务 OS_TmrTask()
  优先级OS_CFG_PRIO_MAX-2：统计任务 OS_StatTask()
  优先级OS_CFG_PRIO_MAX-1：空闲任务 OS_IdleTask()
- 技术支持：www.openedv.com
- 淘宝店铺：http://eboard.taobao.co 
- 关注微信公众平台微信号："正点原子"，免费获取STM32资料。
- 广州市星翼电子科技有限公司  
- 作者：正点原子 @ALIENTEK
 ************************************************/
 
 #define source_res 2000//源内阻
@@ -245,20 +235,6 @@ void start_task(void *p_arg)
                  (void*       )0,					
                  (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
                  (OS_ERR*     )&err);			 
-//	//LED0任务
-//	OSTaskCreate((OS_TCB*     )&Led0TaskTCB,		
-//				 (CPU_CHAR*   )"Led0 task", 		
-//                 (OS_TASK_PTR )led0_task, 			
-//                 (void*       )0,					
-//                 (OS_PRIO	  )LED0_TASK_PRIO,     
-//                 (CPU_STK*    )&LED0_TASK_STK[0],	
-//                 (CPU_STK_SIZE)LED0_STK_SIZE/10,	
-//                 (CPU_STK_SIZE)LED0_STK_SIZE,		
-//                 (OS_MSG_QTY  )0,					
-//                 (OS_TICK	  )0,  					
-//                 (void*       )0,					
-//                 (OS_OPT      )OS_OPT_TASK_STK_CHK|OS_OPT_TASK_STK_CLR,
-//                 (OS_ERR*     )&err);
 	OS_TaskSuspend((OS_TCB*)&StartTaskTCB,&err);		//挂起开始任务			 
 	OS_CRITICAL_EXIT();	//退出临界区
 }
@@ -404,27 +380,7 @@ void touch_task(void *p_arg)
 	}
 }
  
-////ADC,LED0任务
-//void led0_task(void *p_arg)
-//{
-//	OS_ERR err;
-//	while(1)
-//	{
-////		if( mod ==3)
-////		{
-////			//GPIO_SetBits(GPIOB,GPIO_Pin_5);//
-////			Resis_In=ResistanceIput();
-////			//GPIO_SetBits(GPIOE,GPIO_Pin_5);
-////		}   
-////		if(mod == 2)
-////		{
-////			GPIO_ResetBits(GPIOB,GPIO_Pin_5);//
-////			//GPIO_ResetBits(GPIOE,GPIO_Pin_5);
-////		}
-//		//LED0 = !LED0;
-//		OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&err);//延时500ms
-//	}  
-//}
+
 
 //定时器1的回调函数
 void tmr1_callback(void *p_tmr, void *p_arg)
