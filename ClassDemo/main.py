@@ -156,7 +156,7 @@ def uniteSetting():
 
 def setClassTime():
 	data = []
-	with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/conf_classInfo.json', 'r') as f:
+	with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/conf_classTime.json', 'r') as f:
 		data = json.load(f)
 	print("load success")
 	print(data)
