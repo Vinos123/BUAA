@@ -83,7 +83,7 @@ def main():
 		itemClassInfoStr += '"classroom":"' + classroomList[i] + '"\n'
 		itemClassInfoStr += itemTailStr
 		classInfoStr += itemClassInfoStr
-		if i!=len(classNameList)-1 :
+		if i!=len( )-1 :
 			classInfoStr += ","
 		i += 1
 	classInfoStr += tailStr

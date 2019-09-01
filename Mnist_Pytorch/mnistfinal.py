@@ -54,7 +54,7 @@ class ConvNet(nn.Module):##conv模型
         return out
 
 model = ConvNet()#.to(DEVICE)
-optimizer = optim.Adam(model.parameters())##adam优化器更新权重
+optimizer = optim.Adam(model.parameters())##利用adam优化器更新权重
 #####训练#############
 def train(model, train_loader, optimizer, epoch):
     model.train()
@@ -137,7 +137,7 @@ for jj in range(0,20):
     vari=0.1*jj
     print(vari)
     for ii in range(0,10000):
-        test_list[ii][0][0]=torch.from_numpy(sk.util.random_noise(test_list[ii][0][0],mode='gaussian',clip=True,seed=None,var=vari))
+        test_list[ii][0][0]=torch._C.from_numpy(sk.util.random_noise(test_list[ii][0][0],mode='gaussian',clip=True,seed=None,var=vari))
     test_loader_list=torch.utils.data.DataLoader(test_list,batch_size=BATCH_SIZE,shuffle=False)
     test(model,test_loader_list)
 #     test_list[ii][0][0]=test_list[ii][0][0]+sigma*torch.randn(test_dataset[0][0][0].size())
