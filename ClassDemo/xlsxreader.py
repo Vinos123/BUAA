@@ -3,7 +3,7 @@ import re
 import xlrd
 
 
-data = xlrd.open_workbook('/Users/kobezhe/Downloads/classwwz.xls')
+data = xlrd.open_workbook('/Users/kobezhe/Downloads/class.xls')
 sheet1 = data.sheets()[0]
 rows=sheet1.nrows
 cols=sheet1.ncols
