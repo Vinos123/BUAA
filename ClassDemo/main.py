@@ -7,8 +7,8 @@ import json
 from random import Random
 
 
-__author__ = 'ChanJH'
-__site__ = 'chanjh.com'
+__author__ = 'Vino'
+__site__ = 'https://github.com/Vinos123'
 
 checkFirstWeekDate = 0
 checkReminder = 1
@@ -34,48 +34,30 @@ def main():
 	classInfoHandle()
 	icsCreateAndSave()
 
-def classICSCreate(classInfo):
-	global classTimeList, DONE_ALARMUID, DONE_UnitUID
-	i = int(classInfo["classTime"]-1)
-	className = classInfo["className"]+"|"+classTimeList[i]["name"]+"|"+classInfo["classroom"]
-	endTime = classTimeList[i]["endTime"]
-	startTime = classTimeList[i]["startTime"]
-	for date in classInfo["date"]:
-		eventString = "BEGIN:VEVENT\nCREATED:"+classInfo["CREATED"]
-		eventString = eventString+"\nUID:"+classInfo["UID"]
-		eventString = eventString+"\nDTEND;TZID=Asia/Shanghai:"+date+"T"+endTime
-		eventString = eventString+"00\nTRANSP:OPAQUE\nX-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC\nSUMMARY:"+className
-		eventString = eventString+"\nDTSTART;TZID=Asia/Shanghai:"+date+"T"+startTime+"00"
-		eventString = eventString+"\nDTSTAMP:"+DONE_CreatedTime
-		eventString = eventString+"\nSEQUENCE:0\nBEGIN:VALARM\nX-WR-ALARMUID:"+DONE_ALARMUID
-		eventString = eventString+"\nUID:"+DONE_UnitUID
-		eventString = eventString+"\nTRIGGER:"+DONE_reminder
-		eventString = eventString+"\nDESCRIPTION:事件提醒\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\n"
-		return eventString
-	print("classICSCreate")		
+
 	
 
 def save(string):
-     f = open("class.ics", 'wb')
+     f = open("/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/class.ics", 'wb')
      f.write(string.encode("utf-8"))
      f.close()
 
 def icsCreateAndSave():
-	icsString = "BEGIN:VCALENDAR\nMETHOD:PUBLISH\nVERSION:2.0\nX-WR-CALNAME:课程表\nPRODID:-//Apple Inc.//Mac OS X 10.12//EN\nX-APPLE-CALENDAR-COLOR:#FC4208\nX-WR-TIMEZONE:Asia/Shanghai\nCALSCALE:GREGORIAN\nBEGIN:VTIMEZONE\nTZID:Asia/Shanghai\nBEGIN:STANDARD\nTZOFFSETFROM:+0900\nRRULE:FREQ=YEARLY;UNTIL=19910914T150000Z;BYMONTH=9;BYDAY=3SU\nDTSTART:19890917T000000\nTZNAME:GMT+8\nTZOFFSETTO:+0800\nEND:STANDARD\nBEGIN:DAYLIGHT\nTZOFFSETFROM:+0800\nDTSTART:19910414T000000\nTZNAME:GMT+8\nTZOFFSETTO:+0900\nRDATE:19910414T000000\nEND:DAYLIGHT\nEND:VTIMEZONE\n"
+	icsString = "BEGIN:VCALENDAR\nMETHOD:PUBLISH\nVERSION:2.0\nX-WR-CALNAME:课程表\nPRODID:-//Apple Inc.//Mac OS X 10.14//EN\nX-APPLE-CALENDAR-COLOR:#FC4208\nX-WR-TIMEZONE:Asia/Beijing\nCALSCALE:GREGORIAN\nBEGIN:VTIMEZONE\nTZID:Asia/Beijing\nBEGIN:STANDARD\nTZOFFSETFROM:+0900\nRRULE:FREQ=YEARLY;UNTIL=19910914T150000Z;BYMONTH=9;BYDAY=3SU\nDTSTART:19890917T000000\nTZNAME:GMT+8\nTZOFFSETTO:+0800\nEND:STANDARD\nBEGIN:DAYLIGHT\nTZOFFSETFROM:+0800\nDTSTART:19910414T000000\nTZNAME:GMT+8\nTZOFFSETTO:+0900\nRDATE:19910414T000000\nEND:DAYLIGHT\nEND:VTIMEZONE\n"
 	global classTimeList, DONE_ALARMUID, DONE_UnitUID
 	eventString = ""
 	for classInfo in classInfoList :
 		i = int(classInfo["classTime"]-1)
-		className = classInfo["className"]+"|"+classTimeList[i]["name"]+"|"+classInfo["classroom"]
+		className = classInfo["className"]#+"|"+classTimeList[i]["name"]#+"|"+classInfo["classroom"]
 		endTime = classTimeList[i]["endTime"]
 		startTime = classTimeList[i]["startTime"]
 		index = 0
 		for date in classInfo["date"]:
 			eventString = eventString+"BEGIN:VEVENT\nCREATED:"+classInfo["CREATED"]
 			eventString = eventString+"\nUID:"+classInfo["UID"][index]
-			eventString = eventString+"\nDTEND;TZID=Asia/Shanghai:"+date+"T"+endTime
+			eventString = eventString+"\nDTEND;TZID=Asia/Beijing:"+date+"T"+endTime
 			eventString = eventString+"00\nTRANSP:OPAQUE\nX-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC\nSUMMARY:"+className
-			eventString = eventString+"\nDTSTART;TZID=Asia/Shanghai:"+date+"T"+startTime+"00"
+			eventString = eventString+"\nDTSTART;TZID=Asia/Beijing:"+date+"T"+startTime+"00"
 			eventString = eventString+"\nDTSTAMP:"+DONE_CreatedTime
 			eventString = eventString+"\nSEQUENCE:0\nBEGIN:VALARM\nX-WR-ALARMUID:"+DONE_ALARMUID
 			eventString = eventString+"\nUID:"+DONE_UnitUID
@@ -131,7 +113,7 @@ def classInfoHandle():
 	print("classInfoHandle")
 
 def UID_Create():
-	return random_str(20) + "&Chanjh.com"
+	return random_str(20) + "&https://github.com/Vinos123"
 
 
 def CreateTime():
@@ -148,10 +130,10 @@ def CreateTime():
 def uniteSetting():
 	# 
 	global DONE_ALARMUID
-	DONE_ALARMUID = random_str(30) + "&Chanjh.com"
+	DONE_ALARMUID = random_str(30) + "&https://github.com/Vinos123"
 	# 
 	global DONE_UnitUID
-	DONE_UnitUID = random_str(20) + "&Chanjh.com"
+	DONE_UnitUID = random_str(20) + "&https://github.com/Vinos123"
 	print("uniteSetting")
 
 def setClassTime():
@@ -160,10 +142,13 @@ def setClassTime():
 		data = json.load(f)
 	print("load success")
 	print(data)
-	print("无法加载classtime类")
-	print(data[0][1])
+	print("\n")
+#	print("无法加载classtime类")
+#	print(data[0][1])
 	global classTimeList
-	classTimeList = data['classTime']
+	print(data)
+	classTimeList = data["classTime"]
+	print(classTimeList)
 	print("setclassTime")
 	
 def setClassInfo():
@@ -236,7 +221,7 @@ def basicSetting():
 	print (info)
 	
 	info = "请设置第一周的星期一日期(如：20160905):\n"
-	firstWeekDate = input(info)
+	firstWeekDate = '20190902'#input(info)
 	checkInput(checkFirstWeekDate, firstWeekDate)
 	
 	info = "正在配置上课时间信息……\n"
@@ -248,7 +233,7 @@ def basicSetting():
 		print("配置上课时间信息错误.")
 		#print(e)
 		print("\n")
-		sys_exit()
+		#sys_exit()
 
 	info = "正在配置课堂信息……\n"
 	print(info)
@@ -294,4 +279,7 @@ def sys_exit():
 	print("配置文件错误，请检查。\n")
 	sys.exit()
 importlib.reload(sys)
+
+with open('/Users/kobezhe/Downloads/BUAA/BUAA/ClassDemo/xlsxreader.py','r') as f:
+	exec(f.read())
 main()
