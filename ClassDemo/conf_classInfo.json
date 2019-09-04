@@ -1,7 +1,7 @@
 {
 "classInfo":[
 {
- "className":" 通信网络原理与技术</br>熊庆旭[1-9]周(一)212第6，7节 ", "week":{
+ "className":" 通信网络原理与技术 熊庆旭[1-9](一)212第6,7节 ", "week":{
 "startWeek":1,
 "endWeek":9
 },
@@ -9,7 +9,7 @@
 "classTime":3
 
 },{
- "className":" 遥测遥控系统</br>魏少明，修春娣[1-17]周(一)212第3，4节 ", "week":{
+ "className":" 遥测遥控系统 魏少明,修春娣[1-17](一)212第3,4节 ", "week":{
 "startWeek":1,
 "endWeek":17
 },
@@ -17,7 +17,7 @@
 "classTime":2
 
 },{
- "className":" 通信网络原理与技术</br>熊庆旭[1-9]周(一)212第3，4节 ", "week":{
+ "className":" 通信网络原理与技术 熊庆旭[1-9](一)212第3,4节 ", "week":{
 "startWeek":1,
 "endWeek":9
 },
@@ -25,7 +25,7 @@
 "classTime":2
 
 },{
- "className":" 软件无线电基础</br>万国龙[1-17]周(一)201第8，9节 ", "week":{
+ "className":" 软件无线电基础 万国龙[1-17](一)201第8,9节 ", "week":{
 "startWeek":1,
 "endWeek":17
 },
@@ -33,7 +33,7 @@
 "classTime":4
 
 },{
- "className":" 移动通信</br>刘婷婷，杨晨阳[1-17]周(一)212第3，4节 ", "week":{
+ "className":" 移动通信 刘婷婷,杨晨阳[1-17](一)212第3,4节 ", "week":{
 "startWeek":1,
 "endWeek":17
 },

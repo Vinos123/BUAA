@@ -32,6 +32,9 @@ for colx in range (2,cols):
             class_time.append(rowx-1)
             class_weekday.append(colx-1)
             Classstore[rowx][colx] = re.sub(r'\n',"",Classstore[rowx][colx].value)
+            Classstore[rowx][colx] = re.sub(r"</br>"," ",Classstore[rowx][colx])
+            Classstore[rowx][colx] = re.sub(r"周","",Classstore[rowx][colx])
+            Classstore[rowx][colx] = re.sub(r"，",",",Classstore[rowx][colx])
             class_inform.append(Classstore[rowx][colx])
             if(class1!=[]):
                 # print(class1)
