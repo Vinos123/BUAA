@@ -1,0 +1,9 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/Users/kobezhe/.vscode/extensions/rt-thread.rt-thread-micropython-0.2.6/microExamples/code-completion"
+    ],
+    "python.linting.pylintArgs": [
+        "--init-hook",
+        "import sys; sys.path.append('/Users/kobezhe/.vscode/extensions/rt-thread.rt-thread-micropython-0.2.6/microExamples/code-completion')"
+    ]
+}
