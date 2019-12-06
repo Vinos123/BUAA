@@ -6,7 +6,7 @@
 
 ​	解压下载好的源代码，如下图所示
 
-![解压好的代码](.\image4md\projectorigin.png)
+![解压好的代码](image4md/projectorigin.png)
 
 ## 2.  cmake生成工程
 
