@@ -1,0 +1,20 @@
+
+VVCSoftware: VTM Encoder Version 7.0 [Windows][VS 1923][64 bit] [SIMD=AVX2] 
+
+TOOL CFG: IBD:1 HAD:1 RDQ:1 RDQTS:1 RDpenalty:0 LQP:0 SQP:0 ASR:0 MinSearchWindow:8 RestrictMESampling:0 FEN:1 ECU:0 FDM:1 CFM:0 ESD:0 TransformSkip:1 TransformSkipFast:1 TransformSkipLog2MaxSize:5 ChromaTS:1 BDPCM:0 Slice: M=0 Tiles:1x1 MCTS:0 CIP:0 SAO:1 ALF:1 TransQuantBypassEnabled:0 WPP:0 WPB:0 PME:2  WaveFrontSynchro:0 WaveFrontSubstreams:1 ScalingList:0 TMVPMode:1  DQ:1  SignBitHidingFlag:0 RecalQP:0 
+NEXT TOOL CFG: LFNST:1 MMVD:1 Affine:1 AffineType:1 PROF:0 SubPuMvp:1+0 DualITree:1 IMV:1 BIO:0 LMChroma:1 CclmCollocatedChroma:0 MTS: 1(intra) 0(inter) SBT:1 ISP:1 SMVD:0 CompositeLTReference:0 GBi:0 GBiFast:0 LADF:0 MHIntra:0 Triangle:0 AllowDisFracMMVD:1 AffineAmvr:0 AffineAmvrEncOpt:0 DMVR:0 MmvdDisNum:8 JointCbCr:1 PLT:0 IBC:0 HashME:0 WrapAround:0 LoopFilterAcrossVirtualBoundaries:0 Reshape:1 (Signal:SDR Opt:0 CSoffset:0) MIP:1 EncDbOpt:0 
+FAST TOOL CFG: LCTUFast:1 FastMrg:1 PBIntraFast:1 IMV4PelFast:1 MTSMaxCand: 4(intra) 4(inter) ISPFast:1 FastLFNST:1 AMaxBT:1 E0023FastEnc:1 ContentBasedFastQtbt:0 UseNonLinearAlfLuma:1 UseNonLinearAlfChroma:1 MaxNumAlfAlternativesChroma:8 FastMIP:1 FastLocalDualTree:0 NumSplitThreads:1 NumWppThreads:1+0 EnsureWppBitEqual:0 RPR:0TemporalFilter:0 
+
+
+ started @ Wed Dec  4 10:28:24 2019
+POC    0 TId: 0 ( I-SLICE, QP 37 )      54168 bits [Y 34.0519 dB    U 38.2875 dB    V 38.7733 dB] [ET    44 ] [L0 ] [L1 ]
+POC    1 TId: 0 ( I-SLICE, QP 37 )      54224 bits [Y 34.0589 dB    U 38.3094 dB    V 38.7348 dB] [ET    46 ] [L0 ] [L1 ]
+POC    2 TId: 0 ( I-SLICE, QP 37 )      57424 bits [Y 33.9241 dB    U 38.1138 dB    V 38.0853 dB] [ET    44 ] [L0 ] [L1 ]
+POC    3 TId: 0 ( I-SLICE, QP 37 )      59640 bits [Y 33.9814 dB    U 38.0329 dB    V 37.7988 dB] [ET    47 ] [L0 ] [L1 ]
+POC    4 TId: 0 ( I-SLICE, QP 37 )      57728 bits [Y 34.0847 dB    U 37.8828 dB    V 37.8518 dB] [ET    44 ] [L0 ] [L1 ]
+
+	Total Frames |   Bitrate     Y-PSNR    U-PSNR    V-PSNR    YUV-PSNR   
+	        5    a     353.9800   34.0202   38.1253   38.2488   35.0177
+
+ finished @ Wed Dec  4 10:32:12 2019
+ Total Time:      228.409 sec. [user]      228.409 sec. [elapsed]
